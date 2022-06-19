@@ -42,26 +42,29 @@ def Aborts(driver,user):
 
 
 def PMs(driver,user):
-    print("in Pms")
-    #Erorr_Handling(user)
-    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[1]/div/button[1]")
-    #print("first one")
-    #print(user.text)
-    #text = user.text
-    #test_update("Tracers Button", text == "PROM Filter")
-    #print("After test update")
-    #Erorr_Handling(user)
-    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/svg/text[1]")
-    #print(user.text)
-    #text = user.text
-    #test_update("Prom Filter", text == "PROM Filter Shifts Distribution")
-    #user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div/button[2]")
-    #Erorr_Handling(user)
-    #print(user.text)
-    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[1]/div/button")
-    #Erorr_Handling(user)
-    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div/div[1]/div[3]/svg/text[1]")
-    #text = user.text
-    #test_update("BGUIPAPumpChangePM", text == "BGUIPAPumpChangePM Shifts Distribution")
-#
+    Erorr_Handling(user)
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[1]/div/button[1]")
+    text = user.text
+    test_update("Tracers Button", text == "PROM Filter")
+    Erorr_Handling(user)
+    time.sleep(2)
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[2]/div[1]/table/tbody/tr/th[2]")
+    text = user.text
+    test_update("Prom Filter", text == "Sub Entity")
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div/button[2]")
+    Erorr_Handling(user)
+
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[1]/div/button")
+    Erorr_Handling(user)
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div/table/tbody/tr/th[2]")
+    text = user.text
+    test_update("BGUIPAPumpChangePM", text == "Sub Entity")
+
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div/button[4]")
+    Erorr_Handling(user)
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[4]/div[1]/div/button[2]")
+    Erorr_Handling(user)
+    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[4]/div[2]/div[2]/table/tbody/tr/th[4]")
+    text = user.text
+    test_update("BGUG2LChamberSupercleanPM", text == "Checklist Open")
 
