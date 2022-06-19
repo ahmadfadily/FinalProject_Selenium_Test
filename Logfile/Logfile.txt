@@ -1,0 +1,18 @@
+Wrong Email Alert Check ---> Succeeded, 2022-06-19 21:34:37.977798
+NoneExisting Email, Null Conformation Code ---> Succeeded, 2022-06-19 21:34:41.296807
+Wrong Email, Wrong Conformation Code ---> Succeeded, 2022-06-19 21:34:43.454724
+Right Email, Right Conformation Code ---> Succeeded, 2022-06-19 21:34:48.082079
+Counter Report ---> Succeeded, 2022-06-19 21:34:53.850550
+Chemical Report ---> Succeeded, 2022-06-19 21:34:57.095389
+Abort Report ---> Succeeded, 2022-06-19 21:35:00.288260
+Tracers Button ---> Succeeded, 2022-06-19 21:35:01.451315
+PMs Report ---> Succeeded, 2022-06-19 21:35:04.638186
+Wrong Email Alert Check ---> Succeeded, 2022-06-19 21:38:53.876711
+NoneExisting Email, Null Conformation Code ---> Succeeded, 2022-06-19 21:38:57.302554
+Wrong Email, Wrong Conformation Code ---> Succeeded, 2022-06-19 21:38:59.625714
+Right Email, Right Conformation Code ---> Succeeded, 2022-06-19 21:39:04.481579
+Counter Report ---> Succeeded, 2022-06-19 21:39:10.344374
+Chemical Report ---> Succeeded, 2022-06-19 21:39:13.622189
+Abort Report ---> Succeeded, 2022-06-19 21:39:16.818182
+Tracers Button ---> Succeeded, 2022-06-19 21:39:17.951073
+PMs Report ---> Succeeded, 2022-06-19 21:39:21.152205

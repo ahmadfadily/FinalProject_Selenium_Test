@@ -1,31 +1,67 @@
 import time
+from selenium.common import NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException
 from Confirmation import Code_checker
 from Alert_Handling import Alert_Handler
 from Log_Update import test_update
+from Click_Handling import Erorr_Handling
 
-#def Report_Click(driver,input):
-#    while True:
-#    	try:
-#    		user = driver.find_element_by_xpath("/html/body/div/div/input")
-#    		user.send_keys(input)
-#    		user.send_keys(Keys.ENTER)
-#    		time.sleep(1)
-#    		user = driver.find_element_by_xpath("/html/body/div/div/a")
-#    		Erorr_Handling(user)
-#    		return driver
-#    	except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
-#    		print("stuck in exception : " + str(e))
-#    		time.sleep(1)
-#    return True
+def Report_Click(driver,path,expectedPath,expectedText,Report):
+    user = driver.find_element_by_xpath(path)
+    Erorr_Handling(user)
+    counter = 0
+    while True:
+        if counter == 8:
+            test_update(Report, False)
+            break
+        try:
+            chwd = driver.window_handles
+            driver.switch_to.window(chwd[1])
+            time.sleep(1)
+            user = driver.find_element_by_xpath(expectedPath)
+            text = user.text
+            test_update(Report,text == expectedText)
+            if Report == "Abort Report":
+                Aborts(driver,user)
+            if Report =="PMs Report":
+                PMs(driver,user)
+            driver.close()
+            driver.switch_to.window(chwd[0])
+            break
+        except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
+            print("waiting for " + expectedText + " to show")
+            counter+=1
+            time.sleep(1)
+    time.sleep(1)
 
 
+def Aborts(driver,user):
+    Erorr_Handling(user)
+    user = driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[1]/h1/u")
+    text = user.text
+    test_update("Tracers Button", text == "Active Tracers")
 
-#def Counters(driver, Email,expected,test_name,Path):
-#    driver = Report_Click(driver,Email,Path)
-#    time.sleep(1)
-#    if expected != "No Alert":
-#        Test_Output, alert = Alert_Handler(driver,expected)
-#        test_update(test_name, Test_Output)
-#    else:
-#        Code_checker(driver,Email)
-#        print("write here the confirmation code test")
+
+def PMs(driver,user):
+    print("in Pms")
+    #Erorr_Handling(user)
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[1]/div/button[1]")
+    #print("first one")
+    #print(user.text)
+    #text = user.text
+    #test_update("Tracers Button", text == "PROM Filter")
+    #print("After test update")
+    #Erorr_Handling(user)
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/svg/text[1]")
+    #print(user.text)
+    #text = user.text
+    #test_update("Prom Filter", text == "PROM Filter Shifts Distribution")
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div/button[2]")
+    #Erorr_Handling(user)
+    #print(user.text)
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[1]/div/button")
+    #Erorr_Handling(user)
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div/div[1]/div[3]/svg/text[1]")
+    #text = user.text
+    #test_update("BGUIPAPumpChangePM", text == "BGUIPAPumpChangePM Shifts Distribution")
+#
+
