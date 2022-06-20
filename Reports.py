@@ -28,6 +28,7 @@ def Report_Click(driver,path,expectedPath,expectedText,Report):
             driver.switch_to.window(chwd[0])
             break
         except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
+            print(e)
             print("waiting for " + expectedText + " to show")
             counter+=1
             time.sleep(1)
