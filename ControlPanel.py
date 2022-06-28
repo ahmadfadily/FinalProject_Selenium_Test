@@ -25,7 +25,7 @@ def Control(driver,path,expectedPath,expectedText,Task):
             text = user.text
             test_update(Task,text == expectedText)
             UserManagement(driver)
-            #PermissionManagement(driver)
+            PermissionManagement(driver)
             driver.close()
             driver.switch_to.window(chwd[0])
             break
