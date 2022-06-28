@@ -36,7 +36,7 @@ def Choosing_Cases(driver):
     # BGUG2LChamberSupercleanPM
     Report_Click(driver, "/html/body/div[3]/div[1]/div[5]", "/html/body/div[2]/div[1]/div/button[1]", "Filter PMs", "PMs Report")
 
-    # Tests :
+    # The Rest of the Tests :
     # Contorl Panel
     # View Users
     # Add Admin
@@ -48,4 +48,7 @@ def Choosing_Cases(driver):
     # Add User app
     # View Users
     # Remove User
+    # ...
     Control(driver, "/html/body/div[3]/div[1]/div[7]", "/html/body/div[2]/div[1]/div[1]", "User Management", "Control Panel")
+
+

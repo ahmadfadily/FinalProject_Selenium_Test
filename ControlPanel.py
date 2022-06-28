@@ -1,5 +1,7 @@
 import time
 from selenium.common import NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException
+
+from DepartmentManagement import DepartmentManagement
 from Log_Update import test_update
 from Click_Handling import Erorr_Handling
 from PermissionManagement import PermissionManagement
@@ -26,6 +28,7 @@ def Control(driver,path,expectedPath,expectedText,Task):
             test_update(Task,text == expectedText)
             UserManagement(driver)
             PermissionManagement(driver)
+            DepartmentManagement(driver)
             driver.close()
             driver.switch_to.window(chwd[0])
             break
