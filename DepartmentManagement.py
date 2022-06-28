@@ -59,7 +59,7 @@ def AddMachines(driver,machine_name):
                 time.sleep(1)
                 test_update("Add Machines Success Alert appeared", Alert_Handler(driver, "Success !"))
                 return True,label_number
-            print(l[label_number].text)
+            #print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
@@ -121,7 +121,7 @@ def RemoveMachineAttributes(driver,machine_name,attribute_name):
                 #    else:
                 #        label_number+=1
                 #return True
-            print("else ", l[label_number].text)
+            #print("else ", l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:

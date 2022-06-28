@@ -69,7 +69,7 @@ def View_Admin(driver,user_name):
             if l[label_number].text == user_name:
                 test_update("Add Admin appears in Remove Admin", True)
                 return True,label_number
-            print(l[label_number].text)
+            #print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:

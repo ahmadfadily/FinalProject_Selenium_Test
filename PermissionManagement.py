@@ -44,7 +44,7 @@ def Add_Machine_Management(driver):
     return user_name
 
 def Remove_Machine_Management(driver,user_name):
-    print("View Machine Management")
+    #print("View Machine Management")F
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[10]")
     Erorr_Handling(user)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
@@ -57,7 +57,6 @@ def Remove_Machine_Management(driver,user_name):
                 user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/button")
                 Erorr_Handling(user)
                 return True,label_number
-            print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
@@ -65,7 +64,6 @@ def Remove_Machine_Management(driver,user_name):
 
 
 def View_Machine_Management(driver, user_name):
-    print("View Machine Managment")
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[9]")
     Erorr_Handling(user)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
@@ -74,7 +72,6 @@ def View_Machine_Management(driver, user_name):
         while label_number in range(0, len(l)):
             if l[label_number].text == user_name:
                 return True
-            print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
@@ -97,7 +94,6 @@ def Add_View_Report_Permission(driver):
 
 
 def Remove_View_Report_Permission(driver,user_name):
-    print("View Machine Management")
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[12]")
     Erorr_Handling(user)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
@@ -118,7 +114,6 @@ def Remove_View_Report_Permission(driver,user_name):
 
 
 def View_Report_Permission(driver, user_name):
-    print("View Report Permission")
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[11]")
     Erorr_Handling(user)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
@@ -127,7 +122,6 @@ def View_Report_Permission(driver, user_name):
         while label_number in range(0, len(l)):
             if l[label_number].text == user_name:
                 return True
-            print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
