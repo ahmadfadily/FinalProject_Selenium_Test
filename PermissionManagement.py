@@ -20,6 +20,7 @@ def View_Users_Permission(driver,full_name):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[8]")
     Erorr_Handling(user)
     user_list=driver.find_elements(By.CLASS_NAME, "tablinks")
+    time.sleep(2)
     #print(user[1].text)
     for n in range(0,len(user_list)):
         if user_list[n].text == full_name:
@@ -31,14 +32,16 @@ def View_Users_Permission(driver,full_name):
 def Add_Machine_Management(driver):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[9]")
     Erorr_Handling(user)
+    time.sleep(2)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     if len(l) > 0:
         n = len(l)-1
     else:
         return
     user_name = l[n].text
-    user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/label[1]/span")
-    Erorr_Handling(user)
+    #user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/label[1]/span")
+    Erorr_Handling(l[n])
+    time.sleep(2)
     user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/button")
     Erorr_Handling(user)
     return user_name
@@ -47,6 +50,7 @@ def Remove_Machine_Management(driver,user_name):
     #print("View Machine Management")F
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[10]")
     Erorr_Handling(user)
+    time.sleep(2)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     try:
         label_number = 0
@@ -66,6 +70,7 @@ def Remove_Machine_Management(driver,user_name):
 def View_Machine_Management(driver, user_name):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[9]")
     Erorr_Handling(user)
+    time.sleep(2)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     try:
         label_number = 0
@@ -81,6 +86,7 @@ def View_Machine_Management(driver, user_name):
 def Add_View_Report_Permission(driver):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[11]")
     Erorr_Handling(user)
+    time.sleep(1)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     if len(l) > 0:
         n = len(l)-1
@@ -96,6 +102,7 @@ def Add_View_Report_Permission(driver):
 def Remove_View_Report_Permission(driver,user_name):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[12]")
     Erorr_Handling(user)
+    time.sleep(1)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     try:
         label_number = 0
@@ -103,10 +110,11 @@ def Remove_View_Report_Permission(driver,user_name):
             if l[label_number].text == user_name:
                 test_update("Add View Report Permission appears in Remove Report Permission", True)
                 Erorr_Handling(l[label_number])
+                time.sleep(2)
                 user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/button")
                 Erorr_Handling(user)
                 return True,label_number
-            print(l[label_number].text)
+            #print(l[label_number].text)
             label_number += 1
         return False
     except(NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException) as e:
@@ -116,6 +124,7 @@ def Remove_View_Report_Permission(driver,user_name):
 def View_Report_Permission(driver, user_name):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[11]")
     Erorr_Handling(user)
+    time.sleep(1)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     try:
         label_number = 0

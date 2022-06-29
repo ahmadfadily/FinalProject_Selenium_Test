@@ -8,6 +8,7 @@ from Click_Handling import Erorr_Handling
 def Report_Click(driver,path,expectedPath,expectedText,Report):
     user = driver.find_element_by_xpath(path)
     Erorr_Handling(user)
+    time.sleep(4)
     counter = 0
     while True:
         if counter == 8:
@@ -38,6 +39,7 @@ def Report_Click(driver,path,expectedPath,expectedText,Report):
 def Aborts(driver,user):
     Erorr_Handling(user)
     user = driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[1]/h1/u")
+    time.sleep(4)
     text = user.text
     test_update("Tracers Button", text == "Active Tracers")
 
@@ -45,6 +47,7 @@ def Aborts(driver,user):
 def PMs(driver,user):
     Erorr_Handling(user)
     user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[1]/div[1]/div/button[1]")
+    time.sleep(4)
     text = user.text
     test_update("Tracers Button", text == "PROM Filter")
     Erorr_Handling(user)

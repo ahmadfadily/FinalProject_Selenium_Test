@@ -1,5 +1,7 @@
 import time
 from selenium.webdriver.common.by import By
+
+from Click_Handling import Erorr_Handling
 from ControlPanel import Control
 from Login import Login
 from Reports import Report_Click

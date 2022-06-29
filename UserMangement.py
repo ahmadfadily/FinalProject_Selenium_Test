@@ -12,15 +12,15 @@ def UserManagement(driver):
     user_name = Add_Admin(driver)
     Remove_Admin(driver,user_name)
     View_Users(driver)
-    #time.sleep(1)
+    time.sleep(2)
     View_Admin(driver, user_name)
-    #time.sleep(1)
+    time.sleep(2)
     Add_New_User(driver,"Michael", "Bar-Sinai", "barsinam@post.bgu.ac.il")
     View_Users(driver)
-    #time.sleep(2)
+    time.sleep(2)
     Remove_User(driver,"Michael Bar-Sinai - MichaelBar-Sinai")
     View_Users(driver)
-    #time.sleep(2)
+    time.sleep(4)
     # its not showing in the remove user list because its already deleted
     test_update("Remove User",Remove_User(driver,"Michael Bar-Sinai - MichaelBar-Sinai") == False)
     #time.sleep(2)
@@ -52,6 +52,7 @@ def Remove_Admin(driver,user_name):
     if output:
         l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
         Erorr_Handling(l[label_number])
+        time.sleep(2)
         user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/button")
         Erorr_Handling(user)
         #now after we deleted the admin should be false :
@@ -62,6 +63,7 @@ def Remove_Admin(driver,user_name):
 def View_Admin(driver,user_name):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[4]")
     Erorr_Handling(user)
+    time.sleep(2)
     l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
     try:
         label_number = 0
@@ -78,6 +80,7 @@ def View_Admin(driver,user_name):
 def Add_New_User(driver,fname,lname,email):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[5]")
     Erorr_Handling(user)
+    time.sleep(2)
     user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/input[1]")
     user.send_keys(fname)
     user.send_keys(Keys.ENTER)
@@ -105,6 +108,7 @@ def Remove_User(driver,user_name):
                 test_update("Add User appears in Remove User", True)
                 l = driver.find_elements(By.CLASS_NAME, "checkbox_container")
                 Erorr_Handling(l[label_number])
+                time.sleep(2)
                 user = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/button")
                 Erorr_Handling(user)
                 return True

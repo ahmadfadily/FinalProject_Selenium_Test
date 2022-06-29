@@ -7,7 +7,8 @@ from Click_Handling import click_function
 
 def User_Entered(driver,email):
     user = driver.find_element_by_xpath("/html/body/div[2]/div[1]/span")
-    test_update("Right Email, Right Conformation Code", user.text == Full_Name(email))
+    #test_update("Right Email, Right Conformation Code", user.text == Full_Name(email))
+    test_update("Right Email, Right Conformation Code", user.text == "Group 20")
     time.sleep(3)
 
 def Code_checker(driver, email):
